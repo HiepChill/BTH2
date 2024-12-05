@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Thêm Tin tức</h1>
-        <form method="POST" action="index.php?url=admin&action=add" enctype="multipart/form-data">
+        <form method="POST" action="index.php?controller=admin&action=addNews" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Tiêu đề</label>
                 <input type="text" name="title" class="form-control" required>

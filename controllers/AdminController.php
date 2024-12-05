@@ -115,7 +115,7 @@ class AdminController
 
             // Lưu dữ liệu tin tức vào CSDL
             $this->newsModel->createNews($title, $content, $image, $category_id);
-            header('Location: index.php?url=admin');
+            header('Location: index.php?controller=admin&action=showNews');
         }
         require_once 'views/admin/news/add.php';
     }
@@ -155,7 +155,7 @@ class AdminController
 
             // Cập nhật tin tức trong cơ sở dữ liệu
             $this->newsModel->updateNews($id, $title, $content, $image, $category_id);
-            header('Location: index.php?url=admin');
+            header('Location: index.php?controller=admin&action=showNews');
         }
 
         require_once 'views/admin/news/edit.php';
@@ -166,6 +166,6 @@ class AdminController
     public function deleteNews($id)
     {
         $this->newsModel->deleteNews($id);
-        header('Location: index.php?url=admin');
+        header('Location: index.php?controller=admin&action=showNews');
     }
 }
