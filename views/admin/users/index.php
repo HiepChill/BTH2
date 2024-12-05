@@ -45,6 +45,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <a href="index.php?controller=admin&action=dashboard" class="btn btn-secondary">Back</a>
         <?php else : ?>
             <div class="alert alert-info">There is no user.</div>
         <?php endif; ?>
