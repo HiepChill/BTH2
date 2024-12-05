@@ -18,7 +18,7 @@ class AdminController
     }
 
     // Thêm tin tức
-    public function add()
+    public function addNews()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = $_POST['title'];
@@ -57,7 +57,7 @@ class AdminController
 
 
     // Sửa tin tức
-    public function edit()
+    public function editNews()
     {
         $id = $_GET['id'];
         $news = $this->newsModel->getNewsById($id);
@@ -98,7 +98,7 @@ class AdminController
 
 
     // Xóa tin tức
-    public function delete($id)
+    public function deleteNews($id)
     {
         $this->newsModel->deleteNews($id);
         header('Location: index.php?url=admin');
