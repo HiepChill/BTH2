@@ -36,7 +36,7 @@ class NewsController
             $newsModel = new News();
             $newsModel->createNews($title, $content, $image, $category_id);
 
-            header("Location: index.php?url=admin/news");
+            header("Location: index.php?controller=admin/news");
         }
         require_once 'views/admin/news/add.php';
     }
@@ -51,7 +51,7 @@ class NewsController
             $category_id = $_POST['category_id'];
 
             $newsModel->updateNews($id, $title, $content, $image, $category_id);
-            header("Location: index.php?url=admin/news");
+            header("Location: index.php?controller=admin/news");
         }
         $news = $newsModel->getNewsById($id);
         require_once 'views/admin/news/edit.php';
@@ -61,6 +61,6 @@ class NewsController
     {
         $newsModel = new News();
         $newsModel->deleteNews($id);
-        header("Location: index.php?url=admin/news");
+        header("Location: index.php?controller=admin/news");
     }
 }

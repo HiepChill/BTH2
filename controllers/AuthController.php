@@ -50,7 +50,9 @@ class AuthController
                     $adminController = new AdminController();
                     $adminController->dashboard();
                 } else {
-                    header('Location: views/home/index.php');
+                    require_once 'controllers/HomeController.php';
+                    $homeController = new HomeController;
+                    $homeController->index();
                 }
                 exit();
             } else {

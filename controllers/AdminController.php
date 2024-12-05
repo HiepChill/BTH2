@@ -14,7 +14,7 @@ class AdminController
     }
 
     // Hiển thị danh sách tin tức
-    public function index()
+    public function showNews()
     {
         $newsList = $this->newsModel->getAllNews();
         require_once 'views/admin/news/index.php';
