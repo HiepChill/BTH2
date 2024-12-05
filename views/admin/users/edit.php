@@ -15,7 +15,7 @@
 
     <div class="container mt-4">
         <h2 class="text-center mb-4">Edit User</h2>
-        <form action="index.php?controller=admin&action=editUser&id=<? $user['id'] ?>" method="POST" class="form">
+        <form action="index.php?controller=admin&action=editUser&id=<?= $user['id'] ?>" method="POST" class="form">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" name="username" id="username" class="form-control" value="<?= htmlspecialchars($user['username']) ?>" required>
