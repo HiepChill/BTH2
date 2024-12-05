@@ -1,20 +1,20 @@
 <?php
-require_once 'controllers/HomeController.php';
 
-$url = $_GET['url'] ?? 'home';
-$controller = new HomeController();
+$controller = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'Auth';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
-switch ($url) {
-    case 'home':
-        $controller->index();
-        break;
-    case 'home/detail':
-        $controller->detail();
-        break;
-    case 'home/search':
-        $controller->search();
-        break;
-    default:
-        echo "Trang không tồn tại!";
-        break;
+$controllerPath = './controllers/' . $controller . 'Controller.php';
+
+if (file_exists($controllerPath)) {
+    require_once $controllerPath;
+    $controllerClass = $controller . 'Controller';
+    $controllerObject = new $controllerClass;
+
+    if (method_exists($controllerObject, $action)) {
+        $controllerObject->$action();
+    } else {
+        echo "404 Not Found: The action does not exist";
+    }
+} else {
+    echo "404 Not Found: The controller does not exist";
 }
