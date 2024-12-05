@@ -46,7 +46,9 @@ class AuthController
 
                 // Redirect based on user role (user or admin)
                 if ($user['role'] == '1') {
-                    header('Location: views/admin/dashboard.php');
+                    require_once 'controllers/AdminController.php';
+                    $adminController = new AdminController();
+                    $adminController->dashboard();
                 } else {
                     header('Location: views/home/index.php');
                 }
