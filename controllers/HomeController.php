@@ -36,7 +36,7 @@ class HomeController
             exit();
         }
 
-        $newsList = $this->newsModel->searchNews($keyword);
+        $results = $this->newsModel->searchNews($keyword);
         require_once 'views/news/search.php';
     }
 }

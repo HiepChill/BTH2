@@ -11,6 +11,8 @@
 
 <body>
     <div class="container mt-5">
+        <?php
+        ?>
         <h1 class="text-center mb-4">Kết quả tìm kiếm</h1>
         <p>Từ khóa: <strong><?= htmlspecialchars($_GET['keyword']) ?></strong></p>
         <div class="row">

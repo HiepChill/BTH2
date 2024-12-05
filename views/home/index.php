@@ -13,8 +13,9 @@
         <h1 class="text-center">Danh sách Tin tức</h1>
 
         <!-- Form tìm kiếm -->
-        <form method="GET" action="index.php?controller=home&action=search" class="my-4">
-            <input type="hidden" name="url" value="home/search">
+        <form method="GET" action="index.php" class="my-4">
+            <input type="hidden" name="controller" value="home">
+            <input type="hidden" name="action" value="search">
             <div class="input-group">
                 <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm tin tức..." required>
                 <button type="submit" class="btn btn-primary">Tìm kiếm</button>
