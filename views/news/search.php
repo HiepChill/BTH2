@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $news['title'] ?></h5>
                                 <p class="card-text"><?= substr($news['content'], 0, 100) ?>...</p>
-                                <a href="index.php?url=news/detail&id=<?= $news['id'] ?>" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="index.php?controller=home&action=detail&id=<?= $news['id'] ?>" class="btn btn-primary">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>

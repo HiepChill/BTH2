@@ -16,7 +16,7 @@
         </div>
         <p class="text-muted">Danh mục: <?php echo htmlspecialchars($news['category_name']); ?></p>
         <p><?php echo nl2br(htmlspecialchars($news['content'])); ?></p>
-        <a href="index.php" class="btn btn-secondary">Quay lại danh sách</a>
+        <a href="index.php?controller=home&action=index" class="btn btn-secondary">Quay lại danh sách</a>
     </div>
 </body>
 

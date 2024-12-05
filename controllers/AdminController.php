@@ -1,5 +1,6 @@
 <?php
 require_once 'models/News.php';
+require_once 'models/Admin.php';
 
 class AdminController
 {
@@ -8,8 +9,8 @@ class AdminController
 
     public function __construct()
     {
-        $this->newsModel = new News();
         $this->admin = new Admin();
+        $this->newsModel = new News();
     }
 
     // Hiển thị danh sách tin tức
@@ -52,7 +53,7 @@ class AdminController
 
             // Lưu dữ liệu tin tức vào CSDL
             $this->newsModel->createNews($title, $content, $image, $category_id);
-            header('Location: index.php?url=admin');
+            header('Location: index.php?controller=admin&action=index');
         }
         require_once 'views/admin/news/add.php';
     }
@@ -92,7 +93,7 @@ class AdminController
 
             // Cập nhật tin tức trong cơ sở dữ liệu
             $this->newsModel->updateNews($id, $title, $content, $image, $category_id);
-            header('Location: index.php?url=admin');
+            header('Location: index.php?controller=admin&action=index');
         }
 
         require_once 'views/admin/news/edit.php';
@@ -103,7 +104,7 @@ class AdminController
     public function deleteNews($id)
     {
         $this->newsModel->deleteNews($id);
-        header('Location: index.php?url=admin');
+        header('Location: index.php?controller=admin&action=index');
     }
 
     public function dashboard()

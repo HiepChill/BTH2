@@ -32,11 +32,11 @@ class HomeController
     {
         $keyword = $_GET['keyword'] ?? '';
         if (empty($keyword)) {
-            header('Location: index.php');
+            header('Location: index.php?controller=home&action=index');
             exit();
         }
 
         $newsList = $this->newsModel->searchNews($keyword);
-        require_once 'views/home/index.php';
+        require_once 'views/news/search.php';
     }
 }

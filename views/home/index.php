@@ -13,7 +13,7 @@
         <h1 class="text-center">Danh sách Tin tức</h1>
 
         <!-- Form tìm kiếm -->
-        <form method="GET" action="index.php" class="my-4">
+        <form method="GET" action="index.php?controller=home&action=search" class="my-4">
             <input type="hidden" name="url" value="home/search">
             <div class="input-group">
                 <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm tin tức..." required>
@@ -32,7 +32,7 @@
                             <p class="card-text">
                                 <?php echo substr(htmlspecialchars($news['content']), 0, 100) . '...'; ?>
                             </p>
-                            <a href="index.php?url=home/detail&id=<?php echo $news['id']; ?>" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="index.php?controller=home&action=detail&id=<?php echo $news['id']; ?>" class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
