@@ -1,18 +1,20 @@
 <?php
-require_once 'controllers/AdminController.php';
+require_once 'controllers/HomeController.php';
 
-$url = isset($_GET['url']) ? $_GET['url'] : 'admin';
-$action = isset($_GET['action']) ? $_GET['action'] : 'index';
-$id = isset($_GET['id']) ? $_GET['id'] : null;
+$url = $_GET['url'] ?? 'home';
+$controller = new HomeController();
 
-$adminController = new AdminController();
-
-if ($url === 'admin') {
-    if (method_exists($adminController, $action)) {
-        if ($id) {
-            $adminController->$action($id);
-        } else {
-            $adminController->$action();
-        }
-    }
+switch ($url) {
+    case 'home':
+        $controller->index();
+        break;
+    case 'home/detail':
+        $controller->detail();
+        break;
+    case 'home/search':
+        $controller->search();
+        break;
+    default:
+        echo "Trang không tồn tại!";
+        break;
 }
