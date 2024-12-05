@@ -23,48 +23,54 @@ class Admin
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getUserById($id)
+    {
+        $query = "SELECT * FROM users WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);  // Ensure it's an integer
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     // Add a new user
-    public function addUser($username, $password, $role)
+    public function addUser($username, $password)
     {
         $query = "INSERT INTO " . $this->user_table . " (username, password, role) VALUES (:username, :password, :role)";
         $stmt = $this->conn->prepare($query);
 
         $username = htmlspecialchars(strip_tags($username));
         $password = htmlspecialchars(strip_tags($password));
-        $role = htmlspecialchars(strip_tags($role));
+        $role = 0;
 
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
         $stmt->bindParam(":role", $role);
 
         if ($stmt->execute()) {
-            return true;
+            return true; // Update successful
+        } else {
+            // Check for errors
+            $errorInfo = $stmt->errorInfo();
+            echo "Error: " . $errorInfo[2];
+            return false; // Update failed
         }
-
-        return false;
     }
 
     // Update user data
-    public function updateUser($id, $username, $password, $role)
+    public function editUser($id, $username, $password)
     {
-        $query = "UPDATE " . $this->user_table . " SET username = :username, password = :password, role = :role WHERE id = :id";
+        $query = "UPDATE " . $this->user_table . " SET username = :username, password = :password WHERE id = :id";
         $stmt = $this->conn->prepare($query);
 
         $username = htmlspecialchars(strip_tags($username));
         $password = htmlspecialchars(strip_tags($password));
-        $role = htmlspecialchars(strip_tags($role));
         $id = htmlspecialchars(strip_tags($id));
 
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
-        $stmt->bindParam(":role", $role);
         $stmt->bindParam(":id", $id);
 
-        if ($stmt->execute()) {
-            return true;
-        }
-
-        return false;
+        $stmt->execute();
     }
 
     // Delete a user
@@ -77,10 +83,6 @@ class Admin
 
         $stmt->bindParam(":id", $id);
 
-        if ($stmt->execute()) {
-            return true;
-        }
-
-        return false;
+        $stmt->execute();
     }
 }

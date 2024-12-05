@@ -24,7 +24,7 @@
             echo "<br>There are $userCount users.<br><br>";
         }
         ?>
-        <a href="index.php?controller=admin&action=showUser" class="btn btn-primary mb-3">Manage users</a>
+        <a href="index.php?controller=admin&action=showUsers" class="btn btn-primary mb-3">Manage users</a>
     </div>
 </body>
 
