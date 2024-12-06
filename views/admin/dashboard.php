@@ -15,6 +15,7 @@
         <h2 class="text-center">Admin Dashboard</h2>
         <?php
         $userCount = count($users);
+        $newsCount = count($news);
 
         if ($userCount === 0) {
             echo "<br>No users found.<br><br>";
@@ -23,10 +24,19 @@
         } else {
             echo "<br>There are $userCount users.<br><br>";
         }
+
+        if ($newsCount === 0) {
+            echo "<br>No news found.<br><br>";
+        } elseif ($newsCount === 1) {
+            echo "<br>There is only one news.<br><br>";
+        } else {
+            echo "<br>There are $newsCount news.<br><br>";
+        }
         ?>
         <a href="index.php?controller=home&action=index" class="btn btn-primary mb-3">Home</a>
         <a href="index.php?controller=admin&action=showUsers" class="btn btn-primary mb-3">Manage users</a>
         <a href="index.php?controller=admin&action=showNews" class="btn btn-primary mb-3">Manage news</a>
+        <a href="index.php?controller=auth&action=logout" class="btn btn-danger mb-3">Logout</a>
     </div>
 </body>
 

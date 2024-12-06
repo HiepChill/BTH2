@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">List of News</h1>
-        <a href="index.php?controller=admin&action=addNews" class="btn btn-primary mb-3">Thêm Tin tức</a>
+        <a href="index.php?controller=admin&action=addNews" class="btn btn-primary mb-3">Add</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
