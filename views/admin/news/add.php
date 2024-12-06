@@ -29,6 +29,7 @@
                 <input type="number" name="category_id" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
+            <a href="index.php?controller=admin&action=showNews" class="btn btn-secondary">Back</a>
         </form>
     </div>
 </body>

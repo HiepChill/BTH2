@@ -59,6 +59,8 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">List of News</h1>
 
+        <a href="index.php?controller=auth&action=logout" class="btn btn-danger">Logout</a>
+
         <!-- Form tìm kiếm -->
         <form method="GET" action="index.php" class="my-4">
             <input type="hidden" name="controller" value="home">

@@ -18,6 +18,7 @@ class AdminController
     public function dashboard()
     {
         $users = $this->admin->getUsers();
+        $news = $this->newsModel->getAllNews();
         require 'views/admin/dashboard.php';
     }
 
