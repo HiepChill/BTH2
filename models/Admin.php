@@ -46,14 +46,7 @@ class Admin
         $stmt->bindParam(":password", $password);
         $stmt->bindParam(":role", $role);
 
-        if ($stmt->execute()) {
-            return true; // Update successful
-        } else {
-            // Check for errors
-            $errorInfo = $stmt->errorInfo();
-            echo "Error: " . $errorInfo[2];
-            return false; // Update failed
-        }
+        $stmt->execute();
     }
 
     // Update user data

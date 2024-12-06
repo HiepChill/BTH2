@@ -9,35 +9,27 @@
     <style>
         .news-row {
             margin-bottom: 20px;
-            /* Khoảng cách giữa các hàng */
         }
 
         .card {
             display: flex;
             flex-direction: row;
-            /* Sắp xếp nội dung nằm ngang */
             justify-content: space-between;
             align-items: stretch;
             width: 100%;
-            /* Thẻ chiếm toàn bộ chiều rộng */
             height: 200px;
-            /* Chiều cao cố định */
             box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
 
         .card-img {
             width: 30%;
-            /* Chiều rộng cố định của ảnh */
             object-fit: cover;
-            /* Đảm bảo ảnh không bị méo */
             border-radius: 8px 0 0 8px;
-            /* Bo góc chỉ phía ảnh */
         }
 
         .card-body {
             flex-grow: 1;
-            /* Phần nội dung co giãn linh hoạt */
             padding: 15px;
             display: flex;
             flex-direction: column;
@@ -52,16 +44,13 @@
 
         .card-text {
             flex-grow: 1;
-            /* Đảm bảo nội dung co giãn linh hoạt */
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .btn-primary {
             width: fit-content;
-            /* Nút vừa với nội dung */
             align-self: flex-start;
-            /* Căn nút về phía trái */
         }
     </style>
 </head>

@@ -14,7 +14,6 @@ class AuthController
 
     public function index()
     {
-        // Check if the user is already logged in
         if (isset($_SESSION['user_id'])) {
             header('Location: views/home/index.php');
             exit();
@@ -29,7 +28,6 @@ class AuthController
             $username = trim($_POST['username']);
             $password = trim($_POST['password']);
 
-            // Validate input
             if (empty($username) || empty($password)) {
                 require_once "views/auth/login.php";
                 echo "Username and password are required!";
