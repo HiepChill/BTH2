@@ -4,42 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách Tin tức</title>
+    <title>List of News</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .news-row {
+            margin-bottom: 20px;
+            /* Khoảng cách giữa các hàng */
+        }
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            /* Sắp xếp nội dung nằm ngang */
+            justify-content: space-between;
+            align-items: stretch;
+            width: 100%;
+            /* Thẻ chiếm toàn bộ chiều rộng */
+            height: 200px;
+            /* Chiều cao cố định */
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .card-img {
+            width: 30%;
+            /* Chiều rộng cố định của ảnh */
+            object-fit: cover;
+            /* Đảm bảo ảnh không bị méo */
+            border-radius: 8px 0 0 8px;
+            /* Bo góc chỉ phía ảnh */
+        }
+
+        .card-body {
+            flex-grow: 1;
+            /* Phần nội dung co giãn linh hoạt */
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            flex-grow: 1;
+            /* Đảm bảo nội dung co giãn linh hoạt */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-primary {
+            width: fit-content;
+            /* Nút vừa với nội dung */
+            align-self: flex-start;
+            /* Căn nút về phía trái */
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Danh sách Tin tức</h1>
+        <h1 class="text-center mb-4">List of News</h1>
 
         <!-- Form tìm kiếm -->
         <form method="GET" action="index.php" class="my-4">
             <input type="hidden" name="controller" value="home">
             <input type="hidden" name="action" value="search">
-            <div class="input-group">
-                <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm tin tức..." required>
-                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+            <div class="input-group mb-4">
+                <input type="text" name="keyword" class="form-control" placeholder="Search news..." required>
+                <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
 
         <!-- Danh sách tin tức -->
-        <div class="row">
+        <div class="news-list">
             <?php foreach ($newsList as $news): ?>
-                <div class="col-md-4 mb-4">
+                <div class="news-row">
                     <div class="card">
-                        <img src="<?php echo $news['image']; ?>" class="card-img-top" alt="Hình ảnh tin tức">
+                        <img src="<?php echo $news['image']; ?>" class="card-img" alt="News Image">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlspecialchars($news['title']); ?></h5>
                             <p class="card-text">
-                                <?php echo substr(htmlspecialchars($news['content']), 0, 100) . '...'; ?>
+                                <?php echo substr(htmlspecialchars($news['content']), 0, 150) . '...'; ?>
                             </p>
-                            <a href="index.php?controller=home&action=detail&id=<?php echo $news['id']; ?>" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="index.php?controller=home&action=detail&id=<?php echo $news['id']; ?>" class="btn btn-primary">Detail</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
