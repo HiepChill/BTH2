@@ -30,7 +30,7 @@
                 <input type="number" name="category_id" class="form-control" value="<?php echo $news['category_id']; ?>" required>
             </div>
             <button type="submit" class="btn btn-success">Lưu thay đổi</button>
-            <a href="index.php?url=admin" class="btn btn-secondary">Quay lại</a>
+            <a href="index.php?controller=admin" class="btn btn-secondary">Quay lại</a>
         </form>
     </div>
 </body>

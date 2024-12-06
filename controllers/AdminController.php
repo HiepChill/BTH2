@@ -93,7 +93,7 @@ class AdminController
 
             // Cập nhật tin tức trong cơ sở dữ liệu
             $this->newsModel->updateNews($id, $title, $content, $image, $category_id);
-            header('Location: index.php?controller=admin&action=index');
+            header('Location: index.php?controller=admin&action=dashboard');
         }
 
         require_once 'views/admin/news/edit.php';
