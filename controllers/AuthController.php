@@ -66,7 +66,7 @@ class AuthController
         // Destroy the session to log out the user
         session_unset();
         session_destroy();
-        header('Location: views/auth/login.php');
+        header('Location: index.php');
         exit();
     }
 }
